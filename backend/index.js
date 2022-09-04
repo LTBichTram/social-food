@@ -17,5 +17,5 @@ server.listen(5000, () => {
   console.log("server on port 5000");
 });
 app.get("/", function (req, res) {
-  return res.send("Hello world");
+  return res.send("Hello food social network api");
 });
