@@ -7,8 +7,8 @@ const server = http.createServer(app);
 require("dotenv").config();
 const DBConnection = require("./config/db");
 const SocketConnection = require("./config/socket");
-//const SocketCon
-//DBConnection();
+//connect to database
+DBConnection();
 //SocketConnection(server);
 app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
