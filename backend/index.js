@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
+const routes = require("./routes");
 require("dotenv").config();
 const DBConnection = require("./config/db");
 const SocketConnection = require("./config/socket");
@@ -19,3 +20,4 @@ server.listen(5000, () => {
 app.get("/", function (req, res) {
   return res.send("Hello food social network api");
 });
+app.use("/api", routes);
