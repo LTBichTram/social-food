@@ -1,14 +1,33 @@
-import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  Req,
+  Res,
+  UsePipes,
+  ValidationPipe,
+  ParseIntPipe,
+} from '@nestjs/common';
+
 import { Request, Response } from 'express';
+import { CreateUserDto } from './dtos/createUser.dto';
 
 @Controller('api/users')
 export class UserController {
   @Get()
-  getUsers() {
-    return [{ id: 11, name: 'Ho Quang Linh' }];
+  getUsers(@Query() query) {
+    return query;
   }
   @Post()
-  addUser(@Body() user, @Res() response: Response) {
+  @UsePipes(new ValidationPipe())
+  addUser(@Body() user: CreateUserDto, @Res() response: Response) {
     response.send(user);
+  }
+  @Get(':id')
+  getUserById(@Param('id', ParseIntPipe) id: Number) {
+    return id;
   }
 }
