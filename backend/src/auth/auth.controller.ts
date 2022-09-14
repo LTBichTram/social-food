@@ -4,15 +4,12 @@ import { AuthService } from './auth.service';
 export class AuthController {
   constructor(private authService: AuthService) {}
   @Get()
-  findAll(): string {
-    return this.authService.login();
-  }
   @Post('login')
   login() {
-    return 'I am login';
+    return this.authService.login();
   }
   @Post('signup')
   signUp() {
-    return 'I am signup';
+    return this.authService.signup();
   }
 }
