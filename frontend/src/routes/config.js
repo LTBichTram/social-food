@@ -1,8 +1,8 @@
-import HeaderOnly from "../components/Layout/HeaderOnly";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Profile from "../pages/Profile";
-import Upload from "../pages/Upload";
+import { HeaderOnly } from "~/layouts";
+import Home from "~/pages/Home";
+import Login from "~/pages/Login";
+import Profile from "~/pages/Profile";
+import Upload from "~/pages/Upload";
 
 const publicRoutes = [
   { path: "/", element: Home },

@@ -1,15 +1,17 @@
 import React from "react";
-import Header from "../commons/Header";
+import Header from "~/layouts/commons/Header";
+import Sidebar from "./Sidebar";
 
-const HeaderOnly = ({ children }) => {
+const DefaultLayout = ({ children }) => {
   return (
     <>
       <Header />
       <div className="container">
+        <Sidebar />
         <div className="content">{children}</div>
       </div>
     </>
   );
 };
 
-export default HeaderOnly;
+export default DefaultLayout;
