@@ -1,7 +1,14 @@
-@import "normalize.css";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 :root {
-  --primary: #7468a7;
+  --primary: #364366;
+  --second1: #def2ff;
+  --second2: #edceff;
+  --text-color: #222;
+  --border-color: #999;
+  --bg-color: #fff;
+  --border: 0.1rem solid rgb(182, 182, 182);
+  --border-focus: 0.1rem solid var(--primary);
+  --border-radius: 0.5rem;
 }
 
 * {
@@ -18,4 +25,37 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
+}
+
+.btn {
+  overflow: hidden;
+  color: #fff;
+  border-radius: 3rem;
+  box-shadow: 0 0 0 0 rgba(74, 46, 111, 1), 0 0 0 0 rgba(39, 200, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3 ease;
+}
+.btn::after {
+  content: "";
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  top: -5rem;
+  left: -10rem;
+  background-color: #7468a7;
+  background-image: linear-gradient(
+    225deg,
+    #27d86c 0%,
+    #26caf8 50%,
+    #c625d0 100%
+  );
+  z-index: -1;
+  transition: transform 0.5s ease;
+}
+.btn:hover {
+  transform: translate(0, -0.6rem);
+  box-shadow: 1rem -1rem 2.5rem 0 rgba(74, 46, 111, 1),
+    -1rem 1rem 2.5rem 0 rgba(39, 200, 255, 0.5);
+}
+.btn:hover::after {
+  transform: rotate(150deg);
 }
