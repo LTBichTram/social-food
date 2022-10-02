@@ -1,67 +1,22 @@
 import Tippy from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
-import { useState } from "react";
-import { AiFillCloseCircle, AiOutlineLoading3Quarters } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
 
 import { MessageIcon, NotifyIcon, UploadIcon } from "~/assets/icons";
 import images from "~/assets/images";
-import AccountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
 import Image from "~/components/Image";
-import { Wrapper as PopperWrapper } from "~/components/Popper";
 import styles from "./Header.module.scss";
+import Search from "../Search";
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
-  const [serachResult] = useState([]);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setSearchResult([1, 2]);
-  //   }, 500);
-  // }, []);
-
   return (
     <div className={cx("header")}>
       <img src={images.logoS} alt="logo" className={cx("logo")} />
-      <Tippy
-        content="Tìm kiếm"
-        interactive
-        visible={serachResult.length > 0}
-        render={(attrs) => (
-          <div className={cx("search-result")} tabIndex="-1" {...attrs}>
-            <PopperWrapper>
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-            </PopperWrapper>
-          </div>
-        )}
-      >
-        <div className={cx("search")}>
-          <input placeholder="Tìm kiếm" spellCheck={false} />
-          <button className={cx("clear")}>
-            <AiFillCloseCircle />
-          </button>
-          <AiOutlineLoading3Quarters className={cx("loading")} />
-          <button className={cx("search-btn")}>
-            <BsSearch />
-          </button>
-        </div>
-      </Tippy>
+
+      <Search />
+
       <div className={cx("actions")}>
         <Tippy content="Tải lên" delay={[0, 50]} placement="bottom">
           <Button className={cx("action-btn")}>

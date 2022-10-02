@@ -19,6 +19,11 @@ const Button = ({
   children,
   ...passProps
 }) => {
+  const props = {
+    onClick,
+    ...passProps,
+  };
+
   let Comp = "button";
   if (to) {
     props.to = to;
@@ -28,14 +33,9 @@ const Button = ({
     Comp = "a";
   }
 
-  const props = {
-    onClick,
-    ...passProps,
-  };
-
-  //   Deelete event listener when btn is disabled
+  // Deelete event listener when btn is disabled
   if (disabled) {
-    Object.keys(props).map((key) => {
+    Object.keys(props).forEach((key) => {
       if (key.startsWith("on") && typeof (props[key] === "function")) {
         delete props[key];
       }

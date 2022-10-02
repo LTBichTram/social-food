@@ -1,17 +1,13 @@
 .wrapper {
-  padding: 0.8rem;
+  padding: 0.25rem;
   flex-grow: 1;
   cursor: pointer;
   border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
   &:hover {
     background-color: #e3e4e5;
   }
-}
-
-.account-item {
-  display: flex;
-  align-items: center;
-  margin: -0.6rem;
 }
 
 .avatar {
@@ -36,6 +32,7 @@
   display: flex;
   align-items: center;
   color: var(--text);
+  line-height: 0.8;
 }
 
 .check {
