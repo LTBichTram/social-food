@@ -1,33 +1,19 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Query,
-  Req,
-  Res,
-  UsePipes,
-  ValidationPipe,
-  ParseIntPipe,
-} from '@nestjs/common';
-
-import { Request, Response } from 'express';
+import { Body, Controller, Post } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
+import { LoginUserDto } from './dtos/login-user.dto';
+import { UserService } from './user.service';
 
-@Controller('api/users')
+@Controller('users')
 export class UserController {
-  @Get()
-  getUsers(@Query() query) {
-    return query;
+  constructor(private readonly usersService: UserService) {}
+
+  @Post('/signup')
+  async signUp(@Body() createUserDto: CreateUserDto) {
+    await this.usersService.create(createUserDto);
   }
-  @Post()
-  @UsePipes(new ValidationPipe())
-  addUser(@Body() user: CreateUserDto, @Res() response: Response) {
-    response.send(user);
-  }
-  @Get(':id')
-  getUserById(@Param('id', ParseIntPipe) id: Number) {
-    return id;
+
+  @Post('/login')
+  async login(@Body() loginUserDto: LoginUserDto) {
+    await this.usersService.findOne(loginUserDto);
   }
 }

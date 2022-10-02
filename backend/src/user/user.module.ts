@@ -1,14 +1,14 @@
-import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { UserController } from './user.controller';
-import { LoggerMiddleware } from './../middlewares/logger.middleware';
+import { User, UserSchema } from './model/user.schema';
 import { UserService } from './user.service';
+
 @Module({
+  imports: [
+    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+  ],
   controllers: [UserController],
   providers: [UserService],
-  exports: [UserService],
 })
-export class UserModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('api/users');
-  }
-}
+export class UserModule {}
