@@ -1,9 +1,9 @@
 import { Controller, Get, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
-  @Get()
+
   @Post('login')
   login() {
     return this.authService.login();
@@ -11,5 +11,10 @@ export class AuthController {
   @Post('signup')
   signUp() {
     return this.authService.signup();
+  }
+
+  @Get('list')
+  getList() {
+    return this.authService.getList();
   }
 }
