@@ -1,20 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { UserService } from '../user/user.service';
-
-@Injectable()
+import { JwtService } from '@nestjs/jwt';
+import { LoginUserDto } from '../user/dtos/login-user.dto';
 export class AuthService {
-  constructor(private userService: UserService) {}
-  getList() {
-    console.log(this.userService);
-    return this.userService.getAll();
+  constructor(
+    private readonly usersService: UserService,
+    private readonly jwtService: JwtService,
+  ) {}
 
-    //return 'test';
-  }
-  login(): string {
-    console.log('Login');
-    return 'kdged';
-  }
-  signup() {
-    console.log('SignUp');
+  async validateUser(loginUserDto: LoginUserDto) {
+    const result = await this.usersService.findOne(loginUserDto);
+    if (!result) return null;
+    return result;
   }
 }
