@@ -1,0 +1,49 @@
+.wrapper {
+  padding: 0.8rem;
+  flex-grow: 1;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  &:hover {
+    background-color: #e3e4e5;
+  }
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+  margin: -0.6rem;
+}
+
+.avatar {
+  img {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+  }
+}
+
+.avatar,
+.info {
+  padding: 0.6rem;
+}
+
+.info {
+  flex: 1;
+  margin: -0.5rem 0;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+}
+
+.check {
+  color: var(--primary);
+  margin-left: 0.6rem;
+}
+
+.username {
+  font-size: 1.4rem;
+  color: rgba(22, 24, 35, 0.55);
+}
