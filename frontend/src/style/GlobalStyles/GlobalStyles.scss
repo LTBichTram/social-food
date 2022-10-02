@@ -1,14 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 :root {
-  --primary: #364366;
-  --second1: #def2ff;
-  --second2: #edceff;
-  --text-color: #222;
+  --primary: #73abfa;
+  --primary-sc: #86ecfc;
+  --text: black;
+  --text-sc: #364366;
+  --text-placeholder: #65676b;
   --border-color: #999;
-  --bg-color: #fff;
+  --error: #e41e3f;
+  --bg: #fff;
+  --bg-main: #e6f5ff;
+  --bg-main-hover: #d4edff;
   --border: 0.1rem solid rgb(182, 182, 182);
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   --border-focus: 0.1rem solid var(--primary);
-  --border-radius: 0.5rem;
+  --header-height: 5.6rem;
+  --header-search-width: 50rem;
 }
 
 * {
@@ -22,9 +28,39 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Segoe UI", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
+}
+
+//Fonts embeded
+@font-face {
+  font-family: "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/SegoeUI.woff") format("woff");
+}
+@font-face {
+  font-family: "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/SegoeUIBold.woff") format("woff");
+}
+
+img {
+  object-fit: cover;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
 .btn {

@@ -1,10 +1,6 @@
 import React from "react";
 import classNames from "classnames/bind";
 import styles from "./Login.module.scss";
-import loginImg from "~/assets/images/login.png";
-import userImg from "~/assets/images/user.png";
-import lockImg from "~/assets/images/lock.png";
-import logoImg from "~/assets/images/logo.png";
 import images from "~/assets/images";
 
 const cx = classNames.bind(styles);
