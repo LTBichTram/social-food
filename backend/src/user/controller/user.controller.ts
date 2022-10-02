@@ -1,11 +1,11 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateUserDto } from '../dto/create-user.dto';
-import { LoginUserDto } from '../dto/login-user.dto';
-import { UsersService } from '../service/users.service';
+import { CreateUserDto } from '../dtos/create-user.dto';
+import { LoginUserDto } from '../dtos/login-user.dto';
+import { UserService } from '../user.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UserService) {}
 
   @Post('/signup')
   async signUp(@Body() createUserDto: CreateUserDto) {
@@ -13,7 +13,7 @@ export class UsersController {
   }
 
   @Post('/login')
-  async login(@Body() loginUserDto:LoginUserDto) {
+  async login(@Body() loginUserDto: LoginUserDto) {
     await this.usersService.findOne(loginUserDto);
   }
-};
+}
