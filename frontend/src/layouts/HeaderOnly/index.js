@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../commons/Header";
+import Header from "~/layouts/commons/Header";
 
 const HeaderOnly = ({ children }) => {
   return (

@@ -1,0 +1,48 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.8rem;
+  color: var(--text-sc);
+  background-color: var(--bg-main);
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background: var(--bg-main-hover);
+  }
+  + .wrapper {
+    margin-left: 8px;
+  }
+  &.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.icon + .title,
+.title + .icon {
+  margin-left: 0.8rem;
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+
+// Button styles
+.primary {
+  background: linear-gradient(135deg, #2c85e9 0%, #13dfff 93%);
+  color: #fff;
+  &:hover {
+    background: linear-gradient(135deg, #0463cd 0%, #00c8e7 93%);
+  }
+}
+
+// Button sizes
+.small {
+  padding: 0.4rem 1.4rem;
+  min-width: 8.8rem;
+}
