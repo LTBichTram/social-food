@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 import { Model } from 'mongoose';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { LoginUserDto } from './dtos/login-user.dto';
@@ -17,28 +17,26 @@ export class UserService {
       name = '',
       email = '',
       phone = '',
-      password: plaintextPassword = '',
+      password = '',
       birthDate = '',
       gender = false,
     } = createUserDto || null;
-    let encryptPassword;
     const foundUser = await this.userModel.findOne({ email, phone });
-    if (foundUser) return null;
-    bcrypt.genSalt(9, function (err, salt) {
-      bcrypt.hash(plaintextPassword, salt, function (err, hash) {
-        // Store hash in your password DB.
-        if (err) throw err;
-        encryptPassword = hash;
-      });
-    });
+    if (foundUser) {
+      throw new HttpException('User existed', HttpStatus.NOT_FOUND);
+    }
+
+    const hash = await bcrypt.hash(password, 10);
+
     const createdUser = await this.userModel.create({
       name,
       email,
       phone,
-      password: encryptPassword,
+      password: hash,
       birthDate,
       gender,
     });
+
     return createdUser;
   }
 
@@ -48,11 +46,11 @@ export class UserService {
       $or: [{ email: emailOrPhone }, { phone: emailOrPhone }],
     });
     if (!foundUser) {
-      throw new Error('Not found user');
+      throw new HttpException('info login not correct', HttpStatus.NOT_FOUND);
     }
     const isValidPassword = await bcrypt.compare(password, foundUser.password);
     if (!isValidPassword) {
-      throw new Error('Invalid password');
+      throw new HttpException('password not correct', HttpStatus.NOT_FOUND);
     }
     return foundUser;
   }

@@ -5,11 +5,20 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-  @Prop({ required: true })
+  @Prop()
   name: string;
 
   @Prop({ lowercase: true, trim: true, unique: true })
   email: string;
+
+  @Prop()
+  nickName: string;
+
+  @Prop()
+  likeCount: number;
+
+  @Prop({ default: false })
+  isVerified: boolean;
 
   @Prop()
   birthDate: Date;
