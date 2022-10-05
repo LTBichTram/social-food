@@ -7,6 +7,7 @@ import { BsSearch } from "react-icons/bs";
 import AccountItem from "~/components/AccountItem";
 import { Wrapper as PopperWrapper } from "~/components/Popper";
 import { useDebounce } from "~/hooks";
+import * as searchServices from "~/apiServices/searchServices";
 import styles from "./Search.module.scss";
 
 const cx = classNames.bind(styles);
@@ -36,20 +37,12 @@ const Search = () => {
       return;
     }
     setLoading(true);
-    fetch(
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        debounce
-      )}&type=less`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setSearchResult(res.data);
-        setLoading(false);
-        console.log(res.data);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+    const fetchApi = async () => {
+      const res = await searchServices.search(debounce);
+      setSearchResult(res);
+      setLoading(false);
+    };
+    fetchApi();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounce]);
 
@@ -77,7 +70,6 @@ const Search = () => {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           onFocus={() => {
-            console.log("tram");
             setShowResult(true);
           }}
         />
