@@ -1,11 +1,12 @@
 import HeadlessTippy from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
 import { useEffect, useRef, useState } from "react";
-import { AiFillCloseCircle } from "react-icons/ai";
+import { AiFillCloseCircle, AiOutlineLoading3Quarters } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 
 import AccountItem from "~/components/AccountItem";
 import { Wrapper as PopperWrapper } from "~/components/Popper";
+import { useDebounce } from "~/hooks";
 import styles from "./Search.module.scss";
 
 const cx = classNames.bind(styles);
@@ -15,6 +16,8 @@ const Search = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [showResult, setShowResult] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const debounce = useDebounce(searchValue, 500);
 
   const handleClear = () => {
     setSearchValue("");
@@ -27,10 +30,28 @@ const Search = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([1, 2]);
-    }, 0);
-  }, []);
+    console.log(searchValue);
+    if (!debounce.trim()) {
+      setSearchResult([]);
+      return;
+    }
+    setLoading(true);
+    fetch(
+      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+        debounce
+      )}&type=less`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        setSearchResult(res.data);
+        setLoading(false);
+        console.log(res.data);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debounce]);
 
   return (
     <HeadlessTippy
@@ -40,20 +61,9 @@ const Search = () => {
       render={(attrs) => (
         <div className={cx("search-result")} tabIndex="-1" {...attrs}>
           <PopperWrapper>
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
+            {searchResult.map((item) => (
+              <AccountItem key={item.id} data={item} />
+            ))}
           </PopperWrapper>
         </div>
       )}
@@ -71,12 +81,12 @@ const Search = () => {
             setShowResult(true);
           }}
         />
-        {!!searchValue && (
+        {!!searchValue && !loading && (
           <button className={cx("clear")} onClick={handleClear}>
             <AiFillCloseCircle />
           </button>
         )}
-        {/* <AiOutlineLoading3Quarters className={cx("loading")} /> */}
+        {loading && <AiOutlineLoading3Quarters className={cx("loading")} />}
         <button className={cx("search-btn")}>
           <BsSearch />
         </button>

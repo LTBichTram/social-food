@@ -6,7 +6,7 @@ import Upload from "~/pages/Upload";
 
 const publicRoutes = [
   { path: "/", element: Home },
-  { path: "/profile", element: Profile },
+  { path: "/@:nickname", element: Profile },
   { path: "/upload", element: Upload, layout: HeaderOnly },
   { path: "/login", element: Login, layout: null },
 ];
