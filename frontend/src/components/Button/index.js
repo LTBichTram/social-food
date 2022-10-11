@@ -17,6 +17,7 @@ const Button = ({
   leftIcon,
   rightIcon,
   children,
+  className,
   ...passProps
 }) => {
   const props = {
@@ -43,7 +44,7 @@ const Button = ({
   }
 
   const classes = cx("wrapper", {
-    [classNames]: classNames,
+    [className]: className,
     primary,
     disabled,
     small,

@@ -30,6 +30,13 @@ const Search = () => {
     setShowResult(false);
   };
 
+  const handleOnChange = (e) => {
+    const searchValue = e.target.value;
+    if (!searchValue.startsWith(" ")) {
+      setSearchValue(searchValue);
+    }
+  };
+
   useEffect(() => {
     console.log(searchValue);
     if (!debounce.trim()) {
@@ -68,7 +75,7 @@ const Search = () => {
           spellCheck={false}
           ref={inputRef}
           value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={handleOnChange}
           onFocus={() => {
             setShowResult(true);
           }}
@@ -79,7 +86,10 @@ const Search = () => {
           </button>
         )}
         {loading && <AiOutlineLoading3Quarters className={cx("loading")} />}
-        <button className={cx("search-btn")}>
+        <button
+          className={cx("search-btn")}
+          onMouseDown={(e) => e.preventDefault()}
+        >
           <BsSearch />
         </button>
       </div>

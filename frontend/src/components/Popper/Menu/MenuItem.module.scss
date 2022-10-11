@@ -1,0 +1,19 @@
+.menu-list {
+  .menu-item {
+    margin-left: 0;
+    justify-content: flex-start;
+    background-color: var(--bg);
+    font-weight: 500;
+    color: var(--text);
+    border-radius: 0;
+  }
+  .menu-item:hover {
+    background-color: #f0f9ff;
+  }
+}
+
+.menu-item {
+  &.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+  }
+}
