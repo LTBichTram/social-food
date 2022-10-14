@@ -25,6 +25,91 @@ const MENU_ITEMS = [
   {
     title: "Tiếng việt",
     icon: <MdLanguage />,
+    children: {
+      title: "Language",
+      data: [
+        {
+          title: "English",
+          code: "en",
+          type: "language",
+        },
+        {
+          title: "Vietnamese",
+          code: "vi",
+          type: "language",
+        },
+        {
+          title: "English",
+          code: "en",
+          type: "language",
+        },
+        {
+          title: "Vietnamese",
+          code: "vi",
+          type: "language",
+        },
+        {
+          title: "English",
+          code: "en",
+          type: "language",
+        },
+        {
+          title: "Vietnamese",
+          code: "vi",
+          type: "language",
+        },
+        {
+          title: "English",
+          code: "en",
+          type: "language",
+        },
+        {
+          title: "Vietnamese",
+          code: "vi",
+          type: "language",
+        },
+        {
+          title: "English",
+          code: "en",
+          type: "language",
+        },
+        {
+          title: "Vietnamese",
+          code: "vi",
+          type: "language",
+        },
+        {
+          title: "English",
+          code: "en",
+          type: "language",
+        },
+        {
+          title: "Vietnamese",
+          code: "vi",
+          type: "language",
+        },
+        {
+          title: "English",
+          code: "en",
+          type: "language",
+        },
+        {
+          title: "Vietnamese",
+          code: "vi",
+          type: "language",
+        },
+        {
+          title: "English",
+          code: "en",
+          type: "language",
+        },
+        {
+          title: "Vietnamese",
+          code: "vi",
+          type: "language",
+        },
+      ],
+    },
   },
   {
     title: "Cài đặt",
@@ -40,6 +125,14 @@ const MENU_ITEMS = [
     separate: true,
   },
 ];
+
+const handleMenuChange = (menuItems) => {
+  switch (menuItems.type) {
+    case "language":
+      break;
+    default:
+  }
+};
 
 const Header = () => {
   return (
@@ -68,7 +161,7 @@ const Header = () => {
             <span className={cx("badge")}>6</span>
           </Button>
         </Tippy>
-        <Menu items={MENU_ITEMS}>
+        <Menu items={MENU_ITEMS} onChangeMenu={handleMenuChange}>
           <Image className={cx("user-avatar")} src={images.profile} />
         </Menu>
         {/* <Button>Sign up</Button>
