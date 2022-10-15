@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
@@ -135,6 +136,10 @@ const handleMenuChange = (menuItems) => {
 };
 
 const Header = () => {
+  const [isShowMenu, setIsShowMenu] = useState(false);
+  const handleShowMenu = () => {
+    setIsShowMenu(!isShowMenu);
+  };
   return (
     <div className={cx("header")}>
       <Link to={routesConfig.home}>
@@ -161,8 +166,17 @@ const Header = () => {
             <span className={cx("badge")}>6</span>
           </Button>
         </Tippy>
-        <Menu items={MENU_ITEMS} onChangeMenu={handleMenuChange}>
-          <Image className={cx("user-avatar")} src={images.profile} />
+        <Menu
+          isShowMenu={isShowMenu}
+          isShow
+          items={MENU_ITEMS}
+          onChangeMenu={handleMenuChange}
+        >
+          <Image
+            onClick={handleShowMenu}
+            className={cx("user-avatar")}
+            src={images.profile}
+          />
         </Menu>
         {/* <Button>Sign up</Button>
         <Button

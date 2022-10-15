@@ -15,6 +15,7 @@ const Menu = ({
   children,
   items = [],
   hideOnClick = false,
+  isShowMenu = false,
   onChangeMenu = { defaultFn },
 }) => {
   const [level, setLevel] = useState([{ data: items }]);
@@ -47,7 +48,7 @@ const Menu = ({
 
   return (
     <Tippy
-      visible
+      visible={isShowMenu}
       delay={[0, 500]}
       offset={[12, 5]}
       interactive

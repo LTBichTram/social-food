@@ -8,6 +8,7 @@ export class CreateUserDto {
 
   @IsEmail()
   email?: string;
+  
   phone?: string;
   birthDate: Date;
   gender: boolean;
