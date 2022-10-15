@@ -8,13 +8,14 @@ const cx = classNames.bind(styles);
 
 const DefaultLayout = ({ children }) => {
   return (
-    <>
+    <div className={cx("wrapper")}>
       <Header />
       <div className={cx("container")}>
         <Sidebar />
+        {console.log("kkkk")}
         <div className="content">{children}</div>
       </div>
-    </>
+    </div>
   );
 };
 
