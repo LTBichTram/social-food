@@ -15,7 +15,6 @@ const Menu = ({
   children,
   items = [],
   hideOnClick = false,
-  isShowMenu = false,
   onChangeMenu = { defaultFn },
 }) => {
   const [level, setLevel] = useState([{ data: items }]);
@@ -48,22 +47,26 @@ const Menu = ({
 
   return (
     <Tippy
-      visible={isShowMenu}
-      delay={[0, 500]}
+      trigger="click"
+      delay={[0, 100]}
       offset={[12, 5]}
-      interactive
+      hideOnClick="false"
       placement="bottom-end"
-      hideOnClick={hideOnClick}
-      render={(attrs) => (
-        <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
-          <PopperWrapper>
-            {level.length > 1 && (
-              <Header onBack={handleBack} title={current.title}></Header>
-            )}
-            {renderItems()}
-          </PopperWrapper>
-        </div>
-      )}
+      render={(attrs) => {
+        return (
+          <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
+            <PopperWrapper>
+              {level.length > 1 && (
+                <Header onBack={handleBack} title={current.title}></Header>
+              )}
+              {renderItems()}
+            </PopperWrapper>
+          </div>
+        );
+      }}
+      onClickOutside={(instance) => {
+        instance.hide();
+      }}
     >
       {children}
     </Tippy>
