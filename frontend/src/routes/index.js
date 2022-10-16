@@ -3,12 +3,12 @@ import Home from "~/pages/Home";
 import Login from "~/pages/Login";
 import Profile from "~/pages/Profile";
 import Upload from "~/pages/Upload";
-import routesConfig from "~/config/routes";
+import config from "~/config";
 
 const publicRoutes = [
-  { path: routesConfig.home, element: Home },
-  { path: routesConfig.profile, element: Profile },
-  { path: routesConfig.upload, element: Upload, layout: HeaderOnly },
-  { path: routesConfig.login, element: Login, layout: null },
+  { path: config.routes.home, element: Home },
+  { path: config.routes.profile, element: Profile },
+  { path: config.routes.upload, element: Upload, layout: HeaderOnly },
+  { path: config.routes.login, element: Login, layout: null },
 ];
 export { publicRoutes };

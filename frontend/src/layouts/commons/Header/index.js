@@ -6,7 +6,7 @@ import { MdLanguage, MdOutlineHelpOutline } from "react-icons/md";
 import { FiSettings } from "react-icons/fi";
 import { AiOutlineLogout } from "react-icons/ai";
 
-import routesConfig from "~/config/routes";
+import config from "~/config";
 import { MessageIcon, NotifyIcon, UploadIcon } from "~/assets/icons";
 import images from "~/assets/images";
 import Button from "~/components/Button";
@@ -137,7 +137,7 @@ const handleMenuChange = (menuItems) => {
 const Header = () => {
   return (
     <div className={cx("header")}>
-      <Link to={routesConfig.home}>
+      <Link to={config.routes.home}>
         <Image src={images.logoS} alt="logo" className={cx("logo")} />
       </Link>
 
