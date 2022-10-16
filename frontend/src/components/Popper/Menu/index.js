@@ -14,7 +14,7 @@ const defaultFn = () => {};
 const Menu = ({
   children,
   items = [],
-  isShowMenu = false,
+  hideOnClick = false,
   onChangeMenu = { defaultFn },
 }) => {
   const [level, setLevel] = useState([{ data: items }]);
@@ -47,11 +47,12 @@ const Menu = ({
 
   return (
     <Tippy
-      visible={isShowMenu}
-      delay={[0, 500]}
+      trigger="click"
+      delay={[0, 100]}
       offset={[12, 5]}
-      interactive
+      hideOnClick="false"
       placement="bottom-end"
+      interactive
       render={(attrs) => (
         <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
           <PopperWrapper>
