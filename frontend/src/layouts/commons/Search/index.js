@@ -54,46 +54,52 @@ const Search = () => {
   }, [debounce]);
 
   return (
-    <HeadlessTippy
-      content="Tìm kiếm"
-      interactive
-      visible={showResult && searchResult.length > 0}
-      render={(attrs) => (
-        <div className={cx("search-result")} tabIndex="-1" {...attrs}>
-          <PopperWrapper>
-            {searchResult.map((item) => (
-              <AccountItem key={item.id} data={item} />
-            ))}
-          </PopperWrapper>
-        </div>
-      )}
-      onClickOutside={handleHideResult}
-    >
-      <div className={cx("search")}>
-        <input
-          placeholder="Tìm kiếm"
-          spellCheck={false}
-          ref={inputRef}
-          value={searchValue}
-          onChange={handleOnChange}
-          onFocus={() => {
-            setShowResult(true);
-          }}
-        />
-        {!!searchValue && !loading && (
-          <button className={cx("clear")} onClick={handleClear}>
-            <AiFillCloseCircle />
-          </button>
+    <div>
+      <HeadlessTippy
+        content="Tìm kiếm"
+        interactive
+        visible={showResult && searchResult.length > 0}
+        render={(attrs) => (
+          <div className={cx("search-result")} tabIndex="-1" {...attrs}>
+            <PopperWrapper>
+              {searchResult.map((item) => (
+                <AccountItem
+                  key={item.id}
+                  data={item}
+                  className={cx("search-body")}
+                />
+              ))}
+            </PopperWrapper>
+          </div>
         )}
-        {loading && <AiOutlineLoading3Quarters className={cx("loading")} />}
-        <button
-          className={cx("search-btn")}
-          onMouseDown={(e) => e.preventDefault()}
-        >
-          <BsSearch />
-        </button>
-      </div>
-    </HeadlessTippy>
+        onClickOutside={handleHideResult}
+      >
+        <div className={cx("search")}>
+          <input
+            placeholder="Tìm kiếm"
+            spellCheck={false}
+            ref={inputRef}
+            value={searchValue}
+            onChange={handleOnChange}
+            onFocus={() => {
+              setShowResult(true);
+            }}
+          />
+          {!!searchValue && !loading && (
+            <button className={cx("clear")} onClick={handleClear}>
+              <AiFillCloseCircle />
+            </button>
+          )}
+          {loading && <AiOutlineLoading3Quarters className={cx("loading")} />}
+          <button
+            className={cx("search-btn")}
+            onMouseDown={(e) => e.preventDefault()}
+          >
+            <BsSearch />
+          </button>
+        </div>
+      </HeadlessTippy>
+    </div>
   );
 };
 

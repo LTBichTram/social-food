@@ -14,7 +14,6 @@ const defaultFn = () => {};
 const Menu = ({
   children,
   items = [],
-  hideOnClick = false,
   isShowMenu = false,
   onChangeMenu = { defaultFn },
 }) => {
@@ -53,14 +52,13 @@ const Menu = ({
       offset={[12, 5]}
       interactive
       placement="bottom-end"
-      hideOnClick={hideOnClick}
       render={(attrs) => (
         <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
           <PopperWrapper>
             {level.length > 1 && (
               <Header onBack={handleBack} title={current.title}></Header>
             )}
-            {renderItems()}
+            <div className={cx("menu-body")}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}

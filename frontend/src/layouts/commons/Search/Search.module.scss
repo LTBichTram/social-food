@@ -80,3 +80,8 @@
 .search-result {
   width: var(--header-search-width);
 }
+
+.search-body {
+  overflow-y: auto;
+  padding: 0 0.8rem;
+}

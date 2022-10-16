@@ -8,9 +8,11 @@ import Image from "~/components/Image";
 
 const cx = classNames.bind(styles);
 
-const AccountItem = ({ data }) => {
+const AccountItem = ({ data, className }) => {
+  const classes = cx("wrapper", { [className]: className });
+
   return (
-    <Link to={`/@${data.nickname}`} className={cx("wrapper")}>
+    <Link to={`/@${data.nickname}`} className={classes}>
       <div className={cx("avatar")}>
         <Image alt={data.full_name} src={data.avatar} />
       </div>
