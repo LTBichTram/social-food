@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <div className={cx("container")}>
       <form action="" className={cx("card")}>
-        <img src={images.logoS} class={cx("logoS")} alt="" />
+        <img src={images.logoS} className={cx("logoS")} alt="" />
         <h2>Đăng nhập</h2>
         <div className={cx("input-group")}>
           <input

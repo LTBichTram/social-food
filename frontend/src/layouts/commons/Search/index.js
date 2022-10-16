@@ -38,7 +38,6 @@ const Search = () => {
   };
 
   useEffect(() => {
-    console.log(searchValue);
     if (!debounce.trim()) {
       setSearchResult([]);
       return;

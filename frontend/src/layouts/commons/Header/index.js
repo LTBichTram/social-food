@@ -155,7 +155,7 @@ const Header = () => {
             <span className={cx("badge")}>2</span>
           </Button>
         </Tippy>
-        <Tippy content="Thông báo" delay={[0, 50]} placement="bottom">
+        <Tippy interactive delay={[0, 50]} placement="bottom">
           <Button className={cx("action-btn")}>
             <NotifyIcon />
             <span className={cx("badge")}>6</span>

@@ -12,7 +12,6 @@ const DefaultLayout = ({ children }) => {
       <Header />
       <div className={cx("container")}>
         <Sidebar />
-        {console.log("kkkk")}
         <div className="content">{children}</div>
       </div>
     </div>
