@@ -11,12 +11,7 @@ const cx = classNames.bind(styles);
 
 const defaultFn = () => {};
 
-const Menu = ({
-  children,
-  items = [],
-  hideOnClick = false,
-  onChangeMenu = { defaultFn },
-}) => {
+const Menu = ({ children, items = [], onChangeMenu = { defaultFn } }) => {
   const [level, setLevel] = useState([{ data: items }]);
   const current = level[level.length - 1];
 
@@ -63,6 +58,9 @@ const Menu = ({
           </PopperWrapper>
         </div>
       )}
+      onClickOutside={(instance) => {
+        instance.hide();
+      }}
     >
       {children}
     </Tippy>
