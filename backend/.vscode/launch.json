@@ -9,6 +9,8 @@
       "request": "attach",
       "name": "Debug Nest JS",
       "port": 9229,
+      "smartStep": true,
+
       "skipFiles": [
         "${workspaceFolder}/node_modules/**/*.js",
         "<node_internals>/**/*.js"
