@@ -22,7 +22,6 @@ const Button = styled.button`
     border-color: ${(p) => p.theme.colors.border.dark};
   }
 `;
-
 /**
  * Component for rendering follow button
  */
