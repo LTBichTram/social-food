@@ -13,12 +13,11 @@ export const Container = styled.div`
   margin: 0 auto;
   margin-top: ${(p) => (p.marginTop ? p.theme.spacing[p.marginTop] : 0)};
   width: 100%;
-  max-width: ${(p) => p.maxWidth && p.theme.screen[p.maxWidth]};
-  padding: ${(p) =>
-    p.padding ? `0 ${p.theme.spacing[p.padding]}` : `0 ${p.theme.spacing.sm}`};
-  z-index: ${(p) => p.zIndex && p.theme.zIndex[p.zIndex]};
-  background-color: ${(p) => p.color && p.theme.colors[p.color]};
-  border-radius: ${(p) => p.radius && p.theme.radius[p.radius]};
+  max-width: 300px;
+  padding: ${(p) => p.padding};
+  z-index: ${(p) => p.zIndex};
+  background-color: ${(p) => p.color};
+  border-radius: ${(p) => p.radius};
 `;
 
 export const Content = styled.div`

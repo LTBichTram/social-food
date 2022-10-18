@@ -2,15 +2,15 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 import { Container } from "~/style/Common";
-import { Loading } from "styles/Loading";
+import { Loading } from "~/style/Loading";
 
-import InfiniteScroll from "components/shared/InfiniteScroll";
-import Skeleton from "components/shared/Skeleton";
-import Empty from "components/shared/Empty";
-import Head from "components/shared/Head";
-import PeopleCard from "components/PeopleCard";
+import InfiniteScroll from "~/components/Shared/InfiniteScroll";
+import Skeleton from "~/components/Shared/Skeleton";
+import Empty from "~/components/Shared/Empty";
+import Head from "~/components/Shared/Head";
+import PeopleCard from "~/components/PeopleCard";
 
-import { PEOPLE_PAGE_USERS_LIMIT } from "constants/DataLimit";
+import { PEOPLE_PAGE_USERS_LIMIT } from "~/constants/DataLimit";
 
 const Root = styled(Container)`
   margin-top: ${(p) => p.theme.spacing.lg};
@@ -34,25 +34,16 @@ const PeopleContainer = styled.div`
  */
 const People = () => {
   const renderContent = () => {
-    if (loading && networkStatus === 1) {
-      return (
-        <PeopleContainer>
-          <Skeleton height={280} count={PEOPLE_PAGE_USERS_LIMIT} />
-        </PeopleContainer>
-      );
-    }
-
     return (
       <InfiniteScroll
-        data={users}
+        data={[]}
         dataKey="getUsers.users"
-        count={parseInt(count)}
-        variables={variables}
-        fetchMore={fetchMore}
+        count={10}
+        // variables={variables}
+        // fetchMore={fetchMore}
       >
         {(data) => {
-          const showNextLoading =
-            loading && networkStatus === 3 && count !== data.length;
+          const showNextLoading = 10;
 
           return (
             <Fragment>
