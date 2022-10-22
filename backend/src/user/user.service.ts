@@ -8,6 +8,21 @@ import { User, UserDocument } from './model/user.schema';
 
 @Injectable()
 export class UserService {
+  private readonly users = [
+    {
+      userId: 1,
+      username: 'john',
+      password: 'changeme',
+    },
+    {
+      userId: 2,
+      username: 'maria',
+      password: 'guess',
+    },
+  ];
+  async findOneFake(username: string): Promise<any> {
+    return this.users.find((user) => user.username == username);
+  }
   constructor(
     @InjectModel(User.name) private readonly userModel: Model<UserDocument>,
   ) {}
@@ -53,5 +68,13 @@ export class UserService {
       throw new HttpException('password not correct', HttpStatus.NOT_FOUND);
     }
     return foundUser;
+  }
+
+  async findOneByEmail(email: string): Promise<User> {
+    const user = await this.userModel.findOne({
+      email: email,
+    });
+
+    return user;
   }
 }

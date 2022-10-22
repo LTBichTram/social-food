@@ -1,16 +1,43 @@
-import { Injectable } from '@nestjs/common';
-import { UserService } from '../user/user.service';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
+import { UserService } from 'src/user/user.service';
 import { JwtService } from '@nestjs/jwt';
-import { LoginUserDto } from '../user/dtos/login-user.dto';
+
+@Injectable()
 export class AuthService {
   constructor(
-    private readonly usersService: UserService,
-    private readonly jwtService: JwtService,
+    private usersService: UserService,
+    private jwtService: JwtService,
   ) {}
 
-  async validateUser(loginUserDto: LoginUserDto) {
-    const result = await this.usersService.findOne(loginUserDto);
-    if (!result) return null;
-    return result;
+  async validateUser(email: string, password: string): Promise<any> {
+    const user = await this.usersService.findOneFake(email);
+
+    if (!user) {
+      return null;
+    }
+    if (user && user.password == password) {
+      const { pass, ...result } = user;
+      return result;
+    }
+    return null;
+  }
+
+  async login(user: any) {
+    const userSys = await this.usersService.findOne(user.id);
+    const payload = {
+      sub: user.id,
+      email: user.email,
+    };
+
+    return {
+      id: user.id,
+      access_token: this.jwtService.sign(payload),
+    };
   }
 }
