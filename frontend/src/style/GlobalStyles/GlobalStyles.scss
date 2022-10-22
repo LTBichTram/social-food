@@ -43,7 +43,7 @@ html *::-webkit-scrollbar-track {
 
 body {
   font-family: var(--font-family);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   overflow-y: overlay;
 }
@@ -109,4 +109,10 @@ input,
 }
 .btn:hover::after {
   transform: rotate(150deg);
+}
+
+.separate {
+  width: 100%;
+  height: 0.1rem;
+  background-color: rgba(22, 24, 35, 0.12);
 }

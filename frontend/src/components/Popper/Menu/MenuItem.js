@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 const MenuItem = ({ data, onClick }) => {
   return (
     <>
-      {data.separate ? <div className={cx("separate")}></div> : <></>}
+      {data.separate ? <div className="separate"></div> : <></>}
       <Button
         className={cx("menu-item")}
         leftIcon={

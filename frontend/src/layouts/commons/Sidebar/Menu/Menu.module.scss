@@ -1,0 +1,30 @@
+.menu-list {
+  padding-top: 0.8rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 0.8rem 1.6rem;
+  .icon,
+  .icon-active {
+    font-size: 2.4rem;
+  }
+  .icon-active {
+    display: none;
+  }
+  .title {
+    font-weight: 500;
+  }
+  &.active {
+    .icon {
+      display: none;
+    }
+    .icon-active {
+      display: flex;
+      color: #edceff;
+    }
+  }
+}
