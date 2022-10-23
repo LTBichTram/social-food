@@ -9,6 +9,8 @@ import styles from "./Sidebar.module.scss";
 import Menu from "./Menu";
 import { MenuItem } from "./Menu";
 import config from "~/config";
+import images from "~/assets/images";
+import Image from "~/components/Image";
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +23,7 @@ const Sidebar = () => {
           icon={<AiOutlineHome />}
           activeIcon={<AiFillHome />}
           title="Yummy"
+          flag={true}
         />
         <MenuItem
           to={config.routes.stores}
@@ -40,6 +43,10 @@ const Sidebar = () => {
           activeIcon={<FaHeart />}
           title="Yêu thích"
         />
+        <div className="separate"></div>
+        <MenuItem to={config.routes.profile} title="Bích Trâm">
+          <Image className={cx("user-avatar")} src={images.profile} />
+        </MenuItem>
       </Menu>
     </div>
   );

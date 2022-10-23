@@ -21,6 +21,7 @@ const MENU_ITEMS = [
   {
     title: "Trang cá nhân",
     icon: <CgProfile />,
+    to: config.routes.profile,
   },
   {
     title: "Tiếng việt",
