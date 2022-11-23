@@ -1,7 +1,7 @@
 .menu-item {
   display: block;
   padding: 0 1rem;
-  border: 0.4rem solid transparent;
+  border: 0.3rem solid transparent;
   transition: all 0.2s linear;
   &.active {
     border-left-color: #952fd1;
@@ -19,7 +19,7 @@
 }
 
 .menu-wrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
@@ -33,12 +33,15 @@
   }
   .icon,
   .icon-active {
+    display: flex;
     font-size: 2.4rem;
   }
   .icon-active {
     display: none;
   }
   .title {
+    display: flex;
+    padding-right: 5rem;
     font-weight: 500;
     color: var(--text-sc);
   }

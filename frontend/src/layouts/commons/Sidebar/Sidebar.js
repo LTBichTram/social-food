@@ -23,7 +23,6 @@ const Sidebar = () => {
           icon={<AiOutlineHome />}
           activeIcon={<AiFillHome />}
           title="Yummy"
-          flag={true}
         />
         <MenuItem
           to={config.routes.stores}
@@ -44,9 +43,14 @@ const Sidebar = () => {
           title="Yêu thích"
         />
         <div className="separate"></div>
-        <MenuItem to={config.routes.profile} title="Bích Trâm">
-          <Image className={cx("user-avatar")} src={images.profile} />
-        </MenuItem>
+        <MenuItem
+          to={config.routes.profile}
+          title="Bích Trâm"
+          icon={<Image className={cx("user-avatar")} src={images.profile} />}
+          activeIcon={
+            <Image className={cx("user-avatar")} src={images.profile} />
+          }
+        ></MenuItem>
       </Menu>
     </div>
   );

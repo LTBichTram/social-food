@@ -6,7 +6,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 20rem 1fr 30rem;
+  grid-template-columns: minmax(5rem, max-content) 1fr 30rem;
   width: 100%;
   margin-top: var(--header-height);
   min-height: calc(100vh - var(--header-height));
