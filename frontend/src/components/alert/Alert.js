@@ -9,7 +9,7 @@ const Notify = () => {
   const { alert } = useSelector((state) => state);
   const dispatch = useDispatch();
   console.log("====================================");
-  console.log("Test noti");
+  console.log("Test notify");
   console.log("====================================");
 
   return (
