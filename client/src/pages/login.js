@@ -31,7 +31,14 @@ const Login = () => {
   return (
     <div className="auth_page">
       <form onSubmit={handleSubmit}>
-        <h3 className="text-uppercase text-center mb-4">LT-Social</h3>
+        <div className="header-group">
+          <img
+            src="https://raw.githubusercontent.com/LTBichTram/social-food/main/frontend/src/assets/images/logoS.png"
+            alt=""
+            className="logo-img"
+          />
+          <h3 className="text-uppercase text-center mb-4"></h3>
+        </div>
 
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
@@ -44,10 +51,6 @@ const Login = () => {
             onChange={handleChangeInput}
             value={email}
           />
-
-          <small id="emailHelp" className="form-text text-muted">
-            We'll never share your email with anyone else.
-          </small>
         </div>
 
         <div className="form-group">
@@ -62,7 +65,6 @@ const Login = () => {
               value={password}
               name="password"
             />
-
             <small onClick={() => setTypePass(!typePass)}>
               {typePass ? "Hide" : "Show"}
             </small>
@@ -71,7 +73,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="btn btn-dark w-100"
+          className="btn w-100 btn-login"
           disabled={email && password ? false : true}
         >
           Login

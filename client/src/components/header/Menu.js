@@ -11,6 +11,7 @@ const Menu = () => {
     { label: "Home", icon: "home", path: "/" },
     { label: "Message", icon: "near_me", path: "/message" },
     { label: "Discover", icon: "explore", path: "/discover" },
+    { label: "Group", icon: "group", path: "/group" },
   ];
 
   const { auth, theme, notify } = useSelector((state) => state);
@@ -42,10 +43,11 @@ const Menu = () => {
             aria-expanded="false"
           >
             <span
-              className="material-icons"
+              className="material-icons
+              "
               style={{ color: notify.data.length > 0 ? "crimson" : "" }}
             >
-              favorite
+              notifications
             </span>
 
             <span className="notify_length">{notify.data.length}</span>
