@@ -79,18 +79,18 @@ const Menu = () => {
               Profile
             </Link>
 
-            <label
+            {/* <label
               htmlFor="theme"
               className="dropdown-item"
-              onClick={() =>
-                dispatch({
-                  type: GLOBALTYPES.THEME,
-                  payload: !theme,
-                })
-              }
+              // onClick={(e) =>
+              //   // dispatch({
+              //   //   type: GLOBALTYPES.THEME,
+              //   //   payload: !theme,
+              //   // })
+              // }
             >
               {theme ? "Light mode" : "Dark mode"}
-            </label>
+            </label> */}
 
             <div className="dropdown-divider"></div>
             <Link
