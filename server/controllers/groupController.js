@@ -3,12 +3,13 @@ const Comments = require("../models/commentModel");
 const Groups = require("../models/groupModel");
 const Posts = require("../models/postModel");
 
-const groupCrl = {
+const groupController = {
   getAll: async (req, res) => {
     const groups = await Groups.find();
     res.send(groups);
   },
   register: async (req, res) => {
+    console.log("aaaa");
     try {
       const { creater, users, name, avatar, images, desc } = req.body;
 
@@ -35,4 +36,4 @@ const groupCrl = {
   },
 };
 
-module.exports = groupCrl;
+module.exports = groupController;
