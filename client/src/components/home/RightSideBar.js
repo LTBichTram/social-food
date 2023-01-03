@@ -15,7 +15,9 @@ const RightSideBar = () => {
       <UserCard user={auth.user} />
 
       <div className="d-flex justify-content-between align-items-center my-2 mt-5">
-        <h5 style={{ color: "var(--main-text)" }}>Suggestions for you</h5>
+        <h5 style={{ color: "var(--main-text)" }}>
+          Những người bạn có thể biết
+        </h5>
         {!suggestions.loading && (
           <i
             className="fas fa-redo"
