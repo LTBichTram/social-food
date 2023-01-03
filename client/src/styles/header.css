@@ -5,8 +5,8 @@
   top: 0;
   left: 0;
   z-index: 2;
-  box-shadow: 0 0 10px #ddd;
-  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background: var(--main-bg);
   border: 1px solid rgb(0, 0, 0, 0.125);
 }
 .header .navbar {
@@ -26,6 +26,7 @@
 }
 .header .menu .material-icons {
   font-size: 30px;
+  color: var(--main-text);
 }
 .header .menu .dropdown-menu {
   position: absolute;
@@ -57,7 +58,7 @@
   width: 100%;
   outline: none;
   text-indent: 5px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .header .search_form .search_icon {
   position: absolute;
