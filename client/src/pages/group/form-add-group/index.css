@@ -1,4 +1,4 @@
-.add_group {
+.add_group_modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,8 @@
   z-index: 9;
   overflow: auto;
 }
-.add_group form {
+
+.add_group {
   max-width: 450px;
   width: 100%;
   background: white;
@@ -16,10 +17,15 @@
   border-radius: 5px;
   margin: 20px auto;
 }
-.add_group .btn_close {
+.add_group_form {
+  position: relative;
+}
+.add_group_form .btn_close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: -35px;
+  right: -10px;
+  font-size: 30px;
+  cursor: pointer;
 }
 .add_group .info_avatar {
   width: 150px;
