@@ -10,9 +10,11 @@ const Group = () => {
   };
   return (
     <React.Fragment>
-      {showFormAddGroup && <FormAddGroup></FormAddGroup>}
+      {showFormAddGroup && (
+        <FormAddGroup onClose={() => setShowFormAddGroup(false)}></FormAddGroup>
+      )}
       <button onClick={handleShowFormAddGroup} className="btn btn-outline-info">
-        Create Group
+        Tạo nhóm
       </button>
       <FriendGroups></FriendGroups>
       <MyGroups></MyGroups>

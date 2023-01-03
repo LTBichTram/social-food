@@ -18,7 +18,7 @@ const CardHeader = ({ post }) => {
   };
 
   const handleDeletePost = () => {
-    if (window.confirm("Are you sure want to delete this post?")) {
+    if (window.confirm("Bạn có chắc chắn muốn xóa bài đăng?")) {
       dispatch(deletePost({ post, auth, socket }));
       return history.push("/");
     }
