@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { checkImage } from "../../../utils/imageUpload";
+import { checkImage, imageUpload } from "../../../utils/imageUpload";
 const FormAddGroup = ({ setOnEdit }) => {
   const initState = {
     groupName: "",
@@ -13,9 +13,8 @@ const FormAddGroup = ({ setOnEdit }) => {
 
   const { auth, theme } = useSelector((state) => state);
 
-  const changeAvatar = (e) => {
+  const handleUploadImage = (e) => {
     const file = e.target.files[0];
-
     setAvatar(file);
   };
   const onChangeInput = (e) => {
@@ -40,7 +39,7 @@ const FormAddGroup = ({ setOnEdit }) => {
             <i className="fas fa-camera" />
             <p>Change</p>
             <input
-              onChange={changeAvatar}
+              onChange={handleUploadImage}
               type="file"
               name="file"
               id="file_up"
