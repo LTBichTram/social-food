@@ -35,18 +35,26 @@ const CardHeader = ({ post }) => {
 
         <div style={{ paddingLeft: "10px" }} className="card_name">
           <h6 className="m-0">
-            <Link to={`/profile/${post.user._id}`} className="text-dark">
+            <Link
+              to={`/profile/${post.user._id}`}
+              style={{ color: "#fff", fontWeight: "600" }}
+            >
               {post.user.username}
             </Link>
           </h6>
-          <small className="text-muted">
+          <small style={{ color: "rgb(210, 194, 253)" }}>
             {moment(post.createdAt).fromNow()}
           </small>
         </div>
       </div>
 
       <div className="nav-item dropdown">
-        <span className="material-icons" id="moreLink" data-toggle="dropdown">
+        <span
+          className="material-icons"
+          id="moreLink"
+          data-toggle="dropdown"
+          style={{ color: "white" }}
+        >
           more_horiz
         </span>
 

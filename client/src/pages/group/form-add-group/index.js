@@ -1,28 +1,47 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { checkImage, imageUpload } from "../../../utils/imageUpload";
+import "./index.css";
 const FormAddGroup = ({ setOnEdit }) => {
   const initState = {
     groupName: "",
     detail: "",
     privacy: "public",
+    avatarUrl: undefined,
   };
   const [groupData, setGroupData] = useState(initState);
   const [avatar, setAvatar] = useState("");
-  const { groupName, detail, privacy } = groupData;
+  const { groupName, detail, privacy, avatarUrl } = groupData;
 
-  const { auth, theme } = useSelector((state) => state);
+  const { theme } = useSelector((state) => state);
 
-  const handleUploadImage = (e) => {
+  const handleSubmit = async () => {
+    const response = await axios.post(
+      "http://localhost:5000/api/groups/create",
+      {
+        name: groupName,
+        avatar: avatarUrl
+          ? avatarUrl
+          : "https://res.cloudinary.com/hoquanglinh/image/upload/v1668926456/zbalcpggyn1r8ljjzcti.jpg",
+        desc: detail,
+        privacy: privacy,
+      }
+    );
+  };
+
+  const handleUploadImage = async (e) => {
     const file = e.target.files[0];
     setAvatar(file);
+    const media = await imageUpload([file]);
+    setGroupData({ ...groupData, avatarUrl: media[0].url });
   };
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setGroupData({ ...groupData, [name]: value });
   };
   return (
-    <div className="edit_profile">
+    <div className="add_group">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -30,8 +49,13 @@ const FormAddGroup = ({ setOnEdit }) => {
         }}
       >
         <div className="info_avatar">
+          X<box-icon name="x"></box-icon>
           <img
-            src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}
+            src={
+              avatar
+                ? URL.createObjectURL(avatar)
+                : "https://res.cloudinary.com/hoquanglinh/image/upload/v1668926456/zbalcpggyn1r8ljjzcti.jpg"
+            }
             alt="avatar"
             style={{ filter: theme ? "invert(1)" : "invert(0)" }}
           />
@@ -91,7 +115,11 @@ const FormAddGroup = ({ setOnEdit }) => {
           </select>
         </div>
 
-        <button className="btn btn-info w-100" type="submit">
+        <button
+          onClick={handleSubmit}
+          className="btn btn-info w-100"
+          type="submit"
+        >
           Save
         </button>
       </form>

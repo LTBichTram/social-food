@@ -1,3 +1,10 @@
+:root {
+  --main-bg: #1d0f4a;
+  --main-text: #49e0bd;
+  --danger-bg: #e26257;
+  --success-bg: #5172eb;
+}
+
 * {
   padding: 0;
   box-sizing: border-box;
@@ -24,7 +31,7 @@ code {
 .App {
   width: 100%;
   min-height: 100vh;
-  background: #f8f9fa;
+  background: var(--main-bg);
 }
 
 .main {

@@ -5,10 +5,10 @@ import Search from "./Search";
 
 const Header = () => {
   return (
-    <div className="header bg-light">
+    <div className="header">
       <nav
-        className="navbar navbar-expand-lg navbar-light 
-            bg-light justify-content-between align-middle"
+        className="navbar navbar-expand-lg 
+           justify-content-between align-middle"
       >
         <Link to="/" className="logo">
           <h1
