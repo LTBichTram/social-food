@@ -171,7 +171,11 @@ const CommentCard = ({ children, comment, post, commentId }) => {
 
       {onReply && (
         <InputComment post={post} onReply={onReply} setOnReply={setOnReply}>
-          <Link to={`/profile/${onReply.user._id}`} className="mr-1">
+          <Link
+            to={`/profile/${onReply.user._id}`}
+            className="mr-1"
+            style={{ color: "rgb(208, 166, 255)" }}
+          >
             @{onReply.user.username}:
           </Link>
         </InputComment>

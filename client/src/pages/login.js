@@ -40,7 +40,7 @@ const Login = () => {
           <h3 className="text-uppercase text-center mb-4"></h3>
         </div>
 
-        <div className="form-group">
+        <div className="form-group" style={{ color: "rgb(244 241 255 / 88%)" }}>
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
             type="email"
@@ -53,7 +53,10 @@ const Login = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div
+          className="form-group "
+          style={{ color: "rgb(244 241 255 / 88%)" }}
+        >
           <label htmlFor="exampleInputPassword1">Password</label>
 
           <div className="pass">
@@ -79,9 +82,12 @@ const Login = () => {
           Login
         </button>
 
-        <p className="my-2">
+        <p
+          className="mt-3 "
+          style={{ color: "rgb(226, 215, 255)", textAlign: "center" }}
+        >
           You don't have an account?{" "}
-          <Link to="/register" style={{ color: "crimson" }}>
+          <Link to="/register" style={{ color: "var(--main-text)" }}>
             Register Now
           </Link>
         </p>

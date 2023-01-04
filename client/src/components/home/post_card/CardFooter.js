@@ -106,7 +106,7 @@ const CardFooter = ({ post }) => {
           style={{
             padding: "0 25px",
             cursor: "pointer",
-            color: "rgb(210, 194, 253);",
+            color: "rgb(226 215 255)",
           }}
         >
           {post.likes.length} likes
@@ -116,7 +116,7 @@ const CardFooter = ({ post }) => {
           style={{
             padding: "0 25px",
             cursor: "pointer",
-            color: "rgb(210, 194, 253);",
+            color: "rgb(226 215 255)",
           }}
         >
           {post.comments.length} comments

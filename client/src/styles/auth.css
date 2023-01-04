@@ -1,16 +1,16 @@
 .auth_page {
   width: 100%;
   min-height: 100vh;
-  background: #fdfdfd;
+  background: var(--main-bg);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .auth_page form {
-  background: #fff;
+  background: #ffffff1a;
   max-width: 400px;
   width: 100%;
-  border: 1px solid #ddd;
+  border-radius: 6px;
   padding: 50px 25px;
 }
 
@@ -27,11 +27,17 @@
   opacity: 0.5;
 }
 
-.btn-login {
-  background-color: #17a2b8;
-  border-color: 1px solid #17a2b8;
+.btn-login,
+.btn-register {
+  display: inline-block;
+  width: 100%;
+  background-color: #5172eb;
   color: #fff;
   border-radius: 10px;
+}
+.btn-register:hover,
+.btn-login:hover {
+  color: #fff;
 }
 .logo-img {
   max-height: 250px;

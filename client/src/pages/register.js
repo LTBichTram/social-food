@@ -41,7 +41,7 @@ const Register = () => {
       <form onSubmit={handleSubmit}>
         <h3 className="text-uppercase text-center mb-4">LT-Social</h3>
 
-        <div className="form-group">
+        <div className="form-group" style={{ color: "rgb(244 241 255 / 88%)" }}>
           <label htmlFor="fullname">Full Name</label>
           <input
             type="text"
@@ -58,7 +58,7 @@ const Register = () => {
           </small>
         </div>
 
-        <div className="form-group">
+        <div className="form-group" style={{ color: "rgb(244 241 255 / 88%)" }}>
           <label htmlFor="username">User Name</label>
           <input
             type="text"
@@ -75,7 +75,7 @@ const Register = () => {
           </small>
         </div>
 
-        <div className="form-group">
+        <div className="form-group" style={{ color: "rgb(244 241 255 / 88%)" }}>
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
             type="email"
@@ -92,7 +92,7 @@ const Register = () => {
           </small>
         </div>
 
-        <div className="form-group">
+        <div className="form-group" style={{ color: "rgb(244 241 255 / 88%)" }}>
           <label htmlFor="exampleInputPassword1">Password</label>
 
           <div className="pass">
@@ -116,7 +116,7 @@ const Register = () => {
           </small>
         </div>
 
-        <div className="form-group">
+        <div className="form-group" style={{ color: "rgb(244 241 255 / 88%)" }}>
           <label htmlFor="cf_password">Confirm Password</label>
 
           <div className="pass">
@@ -140,7 +140,10 @@ const Register = () => {
           </small>
         </div>
 
-        <div className="row justify-content-between mx-0 mb-1">
+        <div
+          className="row justify-content-between mx-0 mb-1"
+          style={{ color: "rgb(244 241 255 / 88%)" }}
+        >
           <label htmlFor="male">
             Male:{" "}
             <input
@@ -176,13 +179,16 @@ const Register = () => {
           </label>
         </div>
 
-        <button type="submit" className="btn btn-dark w-100">
+        <button type="submit" className="btn btn-register">
           Register
         </button>
 
-        <p className="my-2">
+        <p
+          className="mt-2"
+          style={{ color: "rgb(226, 215, 255)", textAlign: "center" }}
+        >
           Already have an account?{" "}
-          <Link to="/" style={{ color: "crimson" }}>
+          <Link to="/" style={{ color: "var(--main-text)" }}>
             Login Now
           </Link>
         </p>
