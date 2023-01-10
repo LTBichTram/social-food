@@ -1,4 +1,24 @@
+.friend-group-list {
+  gap: 30px;
+}
+
 .friend-group-title {
   color: #fff;
+  font-weight: bold;
+  margin: 20px 0;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.friend-card {
+  height: 350px;
+}
+.card-img-top {
+  height: 180px;
+}
+.badge {
+  color: #007bff;
   font-weight: bold;
 }
