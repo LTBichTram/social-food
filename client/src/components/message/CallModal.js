@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Avatar from "../Avatar";
 import { GLOBALTYPES } from "../../redux/actions/globalTypes";
 import { addMessage } from "../../redux/actions/messageAction";
-import RingRing from "../../audio/ringring.mp3";
+import Calling from "../../audio/calling.mp3";
 
 const CallModal = () => {
   const { call, auth, peer, socket, theme } = useSelector((state) => state);
@@ -170,7 +170,7 @@ const CallModal = () => {
   };
 
   useEffect(() => {
-    let newAudio = new Audio(RingRing);
+    let newAudio = new Audio(Calling);
     if (answer) {
       pauseAudio(newAudio);
     } else {
