@@ -17,17 +17,18 @@ const FormAddGroup = ({ onClose }) => {
   const { theme } = useSelector((state) => state);
 
   const handleSubmit = async () => {
-    const response = await axios.post(
-      "http://localhost:5000/api/groups/create",
-      {
+    const response = await axios
+      .post("http://localhost:5000/api/groups/create", {
         name: groupName,
         avatar: avatarUrl
           ? avatarUrl
           : "https://res.cloudinary.com/hoquanglinh/image/upload/v1668926456/zbalcpggyn1r8ljjzcti.jpg",
         desc: detail,
         privacy: privacy,
-      }
-    );
+      })
+      .then((res) => {
+        alert("Tạo nhóm thành công");
+      });
   };
 
   const handleUploadImage = async (e) => {

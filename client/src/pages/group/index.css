@@ -1,0 +1,7 @@
+.form-action {
+  position: fixed;
+  top: 90px;
+  left: 60px;
+
+  z-index: 100;
+}

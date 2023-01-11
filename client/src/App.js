@@ -24,7 +24,7 @@ import SocketClient from "./SocketClient";
 import { getNotifies } from "./redux/actions/notifyAction";
 import CallModal from "./components/message/CallModal";
 import Peer from "peerjs";
-
+import "swiper/swiper-bundle.min.css";
 function App() {
   const { auth, status, modal, call } = useSelector((state) => state);
   const dispatch = useDispatch();
