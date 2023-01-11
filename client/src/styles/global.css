@@ -45,6 +45,13 @@ img {
   object-fit: cover;
 }
 
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
 /* -------- AUTH ---------- */
 @import url("./auth.css");
 

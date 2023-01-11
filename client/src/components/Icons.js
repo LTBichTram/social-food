@@ -31,7 +31,7 @@ const Icons = ({ setContent, content, theme }) => {
   return (
     <div className="nav-item dropdown">
       <span
-        className="nav-link position-relative px-1"
+        className="nav-link position-relative"
         id="navbarDropdown"
         role="button"
         data-toggle="dropdown"

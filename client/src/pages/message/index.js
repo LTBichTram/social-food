@@ -14,10 +14,10 @@ const Message = () => {
                 align-items-center flex-column h-100"
         >
           <i
-            className="fab fa-facebook-messenger text-primary"
-            style={{ fontSize: "5rem" }}
+            className="fab fa-facebook-messenger"
+            style={{ fontSize: "5rem", color: "var(--success-bg)" }}
           />
-          <h4>Tin nhắn</h4>
+          <h4 style={{ color: "#fff" }}>Tin nhắn</h4>
         </div>
       </div>
     </div>
