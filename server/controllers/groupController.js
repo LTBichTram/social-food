@@ -9,9 +9,8 @@ const groupController = {
     res.send(groups);
   },
   register: async (req, res) => {
-    console.log("aaaa");
     try {
-      const { creater, users, name, avatar, images, desc } = req.body;
+      const { creater, users, name, avatar, images, desc, privacy } = req.body;
 
       const newGroup = new Groups({
         creater,
@@ -20,6 +19,7 @@ const groupController = {
         avatar,
         images,
         desc,
+        privacy,
       });
 
       await newGroup.save();
