@@ -51,11 +51,10 @@ const EditProfile = ({ setOnEdit }) => {
 
   return (
     <div className="edit_profile">
-      <div className="btn_close" onClick={() => setOnEdit(false)}>
-        <IoMdClose />
-      </div>
-
       <form onSubmit={handleSubmit}>
+        <div className="btn_close" onClick={() => setOnEdit(false)}>
+          <IoMdClose />
+        </div>
         <div className="info_avatar">
           <img
             src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}

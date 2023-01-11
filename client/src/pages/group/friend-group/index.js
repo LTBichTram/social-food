@@ -16,7 +16,7 @@ const FriendGroups = () => {
     <div>
       <h2 className="friend-group-title">Đề xuất dành cho bạn</h2>
 
-      <div className="row friend-group-list ">
+      <div className="friend-group-list ">
         <Swiper
           spaceBetween={50}
           slidesPerView={3}
@@ -29,7 +29,7 @@ const FriendGroups = () => {
             listFriendGroups.map((group) => {
               return (
                 <SwiperSlide>
-                  <div className="col">
+                  <div>
                     <div class="card friend-card" style={{ width: "18rem" }}>
                       <img
                         class="card-img-top"
