@@ -8,6 +8,7 @@ const groupSchema = new mongoose.Schema(
     avatar: String,
     images: Array,
     desc: String,
+    privacy: String,
   },
   {
     timestamps: true,

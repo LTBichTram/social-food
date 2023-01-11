@@ -80,7 +80,9 @@ const CommentCard = ({ children, comment, post, commentId }) => {
         style={{ textDecoration: "none", color: "#fff" }}
       >
         <Avatar src={comment.user.avatar} size="small-avatar" />
-        <h6 className="mx-1 mf-2">{comment.user.username}</h6>
+        <h6 style={{ textTransform: "capitalize" }} className="mx-1 mf-2 ca">
+          {comment.user.username}
+        </h6>
       </Link>
 
       <div className="comment_content">

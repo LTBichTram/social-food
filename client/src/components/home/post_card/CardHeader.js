@@ -33,11 +33,18 @@ const CardHeader = ({ post }) => {
       <div className="d-flex">
         <Avatar src={post.user.avatar} size="big-avatar" />
 
-        <div style={{ paddingLeft: "10px" }} className="card_name">
+        <div
+          style={{ paddingLeft: "10px", textTransform: "capitalize" }}
+          className="card_name"
+        >
           <h6 className="m-0">
             <Link
               to={`/profile/${post.user._id}`}
-              style={{ color: "#fff", fontWeight: "600" }}
+              style={{
+                color: "#fff",
+                fontWeight: "600",
+                textTransform: "capitalize",
+              }}
             >
               {post.user.username}
             </Link>

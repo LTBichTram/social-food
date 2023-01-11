@@ -28,6 +28,10 @@
   align-items: center;
   flex-wrap: wrap;
 }
+.info_content_title > h2 {
+  text-transform: capitalize;
+}
+
 .info_content_title h2 {
   font-size: 2rem;
   font-weight: 400;
